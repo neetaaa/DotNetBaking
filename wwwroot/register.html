@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="left-side">
+        <img src="/images/log-in-girl.png" alt="Chef" class="chef-img">
+    </div>
+
+    <div class="right-side">
+        <div class="login-form-container">
+            <form class="login-form" id="registerForm">
+                <h2>REGISTER</h2>
+                <input type="text" id="registerUsername" placeholder="username" required>
+                <input type="email" id="registerEmail" placeholder="email" required>
+                <input type="password" id="registerPassword" placeholder="password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="register-link">Already have an account? <a href="/login.html">Login</a></p>
+            <p id="registerFeedback" style="color:red;"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+
+            const response = await fetch('/api/Auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            });
+
+            const feedback = document.getElementById('registerFeedback');
+
+            if (response.ok) {
+                window.location.href = '/login.html';
+            } else {
+                const err = await response.json();
+                feedback.innerText = err.message || 'Registration failed';
+            }
+        });
+
+    </script>
+</body>
+</html>

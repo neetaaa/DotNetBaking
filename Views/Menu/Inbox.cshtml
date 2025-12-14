@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Inbox</title>
+    <link rel="stylesheet" href="~/css/inbox.css" />
+</head>
+<body style="padding:20px; background:#fffafa;">
+
+    <h1>Your Cake Inbox 🍰</h1>
+
+    <div class="send-box">
+        <h3>🍰 Send a slice</h3>
+
+        <select id="toUserId">
+            <option value="">Choose a friend</option>
+        </select>
+
+        <textarea id="messageText" placeholder="Write a sweet message..."></textarea>
+
+        <button id="sendBtn">Send 🍰</button>
+    </div>
+
+    <hr />
+
+    <div id="messagesList"></div>
+
+    <script src="~/js/inbox.js"></script>
+</body>
+</html>

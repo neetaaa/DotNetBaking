@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Apple Pie";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/recipe.css" />
+
+<div class="recipe-wrapper">
+
+    <div class="left-icons">
+        <img src="~/images/mix.png" />
+        <img src="~/images/oven.png" class="oven-icon" />
+    </div>
+
+    
+    <div class="bowl-area">
+
+        <div class="bowl-css">
+            <div class="dough"></div>
+        </div>
+
+    </div>
+
+    <div class="ingredients-card">
+        <div class="pin">
+            <img src="~/images/recipe_pin.png" />
+        </div>
+
+        <div class="ingredients">
+            <img src="~/images/milk.png" class="ingredient" data-type="milk" />
+            <img src="~/images/sugar.png" class="ingredient" data-type="sugar" />
+            <img src="~/images/eggs.png" class="ingredient" data-type="egg" />
+            <img src="~/images/apple.png" class="ingredient" data-type="apple" />
+            <img src="~/images/flour.png" class="ingredient" data-type="flour" />
+        </div>
+
+        <button class="mix-btn">Mix</button>
+    </div>
+
+</div>
+
+<script src="~/js/recipe.js"></script>

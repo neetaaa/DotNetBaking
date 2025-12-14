@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <!-- 🔝 TOP BAR -->
+    <div class="top-bar">
+        <!-- 🔔 MESSAGE ICON -->
+        <a href="/Menu/Inbox" class="msg-icon">
+            🔔 <span id="msgCount"></span>
+        </a>
+
+        <!-- 🚪 LOGOUT -->
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+
+    @RenderBody()
+
+    <script>
+        // 🔔 LOAD UNREAD MESSAGES
+        async function loadUnread() {
+            const userId = localStorage.getItem("userId");
+
+            // ❌ nëse s’je logged in, mos bo fetch
+            if (!userId || userId === "undefined") return;
+
+            try {
+                const res = await fetch(`/api/slice/inbox/${userId}`);
+                if (!res.ok) return;
+
+                const data = await res.json();
+                if (!Array.isArray(data)) return;
+
+                const unread = data.filter(x => !x.isRead).length;
+                document.getElementById("msgCount").innerText =
+                    unread > 0 ? unread : "";
+            } catch (e) {
+                console.error("Inbox error:", e);
+            }
+        }
+
+        loadUnread();
+
+        // 🚪 LOGOUT
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            localStorage.clear();
+            window.location.href = "/login.html";
+        });
+    </script>
+
+</body>
+</html>

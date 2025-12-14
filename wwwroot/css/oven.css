@@ -1,0 +1,179 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(90deg, #f2a8a8 50%, #fff0f6 50%);
+    height: 100vh;
+}
+
+/* MAIN WRAPPER */
+.oven-game {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT SIDE */
+.oven-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .oven-side h1 {
+        color: #ff5fa2;
+        font-size: 42px;
+    }
+
+/* OVEN (reuse your styles) */
+.oven-box {
+    position: relative;
+    width: 320px;
+    height: 240px;
+    background: #ff8fcf;
+    border-radius: 30px;
+    margin-top: 30px;
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+}
+
+.oven-door {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 270px;
+    height: 150px;
+    background: #ffb3dc;
+    border-radius: 20px;
+}
+
+.oven-glass {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 230px;
+    height: 110px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 15px;
+}
+
+/* HEAT */
+.heat {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 15px;
+    background: linear-gradient(to right, #ff6b6b, #ffa07a);
+    border-radius: 10px;
+    animation: heatPulse 1s infinite alternate;
+}
+
+@keyframes heatPulse {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* FIRE */
+.fire {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+    .fire span {
+        width: 12px;
+        height: 12px;
+        background: #ff4d4d;
+        border-radius: 50%;
+        animation: fireFlicker 0.6s infinite alternate;
+    }
+
+        .fire span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fire span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+@keyframes fireFlicker {
+    from {
+        transform: scale(0.7);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* RIGHT SIDE */
+.control-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .control-side h2 {
+        font-size: 32px;
+        color: #ff5fa2;
+    }
+
+.time-buttons {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+    .time-buttons button {
+        padding: 12px 20px;
+        font-size: 18px;
+        border-radius: 20px;
+        border: none;
+        background: #ff8fcf;
+        color: white;
+        cursor: pointer;
+    }
+
+.timer {
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.result {
+    font-size: 24px;
+    color: #ff5fa2;
+    font-weight: bold;
+}
+
+.done-btn {
+    margin-top: 20px;
+    padding: 14px 28px;
+    font-size: 20px;
+    background: #ff5fa2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

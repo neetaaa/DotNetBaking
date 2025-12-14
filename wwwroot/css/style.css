@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+}
+
+.left-side {
+    flex: 1;
+    background-image: url('/images/login-right.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.chef-img {
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    width: 280px;
+    height: auto;
+}
+
+.right-side {
+    flex: 1.5;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+    .login-form h2 {
+        color: #f2a8a8;
+        letter-spacing: 2px;
+    }
+
+    .login-form input {
+        width: 220px;
+        padding: 10px 15px;
+        border: 1px solid #f2a8a8;
+        border-radius: 20px;
+        outline: none;
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+    }
+
+        .login-form input::placeholder {
+            color: #f2a8a8;
+            opacity: 0.7;
+        }
+
+    .login-form button {
+        width: 120px;
+        height: 35px;
+        border: none;
+        border-radius: 20px;
+        background-color: #f2a8a8;
+        cursor: pointer;
+        transition: 0.3s;
+        color: #fff;
+    }
+
+        .login-form button:hover {
+            background-color: #f6bcbc;
+        }
+
+.register-link {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #f2a8a8;
+}
+
+    .register-link a {
+        text-decoration: none;
+        color: #f2a8a8;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        .register-link a:hover {
+            color: #f6bcbc;
+        }

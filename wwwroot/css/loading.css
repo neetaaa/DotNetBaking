@@ -1,0 +1,60 @@
+﻿body {
+    margin: 0;
+    background: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.loading-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ICON */
+.loading-icon {
+    width: 120px;
+    margin-bottom: 40px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    width: 60%;
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #e7d8ff, #d6bfff);
+    animation: loading 2.5s linear forwards;
+}
+
+@keyframes loading {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}

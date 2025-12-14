@@ -1,0 +1,181 @@
+﻿/* RESET */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: url("/images/bg-pattern.png");
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* WRAPPER */
+.recipe-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* LEFT ICONS */
+.left-icons {
+    position: absolute;
+    left: 40px;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+    .left-icons img {
+        width: 40px;
+    }
+
+/* ================= BOWL ================= */
+
+.bowl-area {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.bowl-css {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    border-radius: 0 0 150px 150px;
+    background: #e6e6e6;
+    border: 8px solid #cfcfcf;
+    overflow: hidden;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+}
+
+/* DOUGH */
+.dough {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 50px;
+    background: radial-gradient(circle at top, #f3ddb8, #e2c28f);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    animation: doughIdle 3s ease-in-out infinite;
+}
+
+/* DOUGH IDLE */
+@keyframes doughIdle {
+    0% {
+        border-radius: 45% 55% 50% 50%;
+    }
+
+    50% {
+        border-radius: 55% 45% 60% 40%;
+    }
+
+    100% {
+        border-radius: 45% 55% 50% 50%;
+    }
+}
+
+/* DOUGH MIX */
+.dough.mixing {
+    animation: doughMix 0.5s ease-in-out 3;
+}
+
+@keyframes doughMix {
+    0% {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scaleX(1.25);
+    }
+
+    100% {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+/* ================= INGREDIENT CARD ================= */
+
+.ingredients-card {
+    position: absolute;
+    right: 60px;
+    top: 20%;
+    width: 260px;
+    background: white;
+    border-radius: 25px;
+    padding: 30px 20px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 10; /* MBI BOWL */
+}
+
+/* PIN */
+.pin {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+}
+
+    .pin img {
+        width: 40px;
+    }
+
+/* INGREDIENTS GRID */
+.ingredients {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ingredient {
+    width: 50px;
+    cursor: pointer;
+}
+
+/* ================= MIX BUTTON ================= */
+
+.mix-btn {
+    width: 100%;
+    padding: 12px;
+    background: #f7c7c7;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+}
+
+    /* BUTTON ANIMATION */
+    .mix-btn.mixing {
+        animation: btnMix 0.5s ease-in-out;
+    }
+
+@keyframes btnMix {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
