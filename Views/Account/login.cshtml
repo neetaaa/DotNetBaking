@@ -1,14 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body>
     <div class="left-side">
-        <img src="/images/log-in-girl.png" alt="Chef" class="chef-img">
+        <img src="~/images/log-in-girl.png" alt="Chef" class="chef-img">
     </div>
 
     <div class="right-side">
@@ -19,7 +23,7 @@
                 <input type="password" id="loginPassword" placeholder="password" required>
                 <button type="submit">Log In</button>
             </form>
-            <p class="register-link">Don't have an account? <a href="/register.html">Register</a></p>
+            <p class="register-link">Don't have an account? <a href="/Account/Register">Register</a></p>
             <p id="loginFeedback" style="color:red;"></p>
         </div>
     </div>
@@ -27,7 +31,6 @@
     <script>
         document.getElementById('loginForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
 
@@ -38,24 +41,14 @@
             });
 
             const feedback = document.getElementById('loginFeedback');
-
             if (response.ok) {
                 const data = await response.json();
-
-                console.log("LOGIN RESPONSE:", data); // 🔥 SHIKO ÇKA KTHET
-
-                localStorage.setItem('userId', data.userId); // ⚠️ lowercase
-                localStorage.setItem('level', data.level);
-
                 window.location.href = '/Menu/Loading';
-
             } else {
                 const err = await response.json();
                 feedback.innerText = err.message || 'Login failed';
             }
         });
     </script>
-
-
 </body>
 </html>

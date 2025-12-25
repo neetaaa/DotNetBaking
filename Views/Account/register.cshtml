@@ -1,14 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body>
     <div class="left-side">
-        <img src="/images/log-in-girl.png" alt="Chef" class="chef-img">
+        <img src="~/images/log-in-girl.png" alt="Chef" class="chef-img">
     </div>
 
     <div class="right-side">
@@ -20,7 +24,7 @@
                 <input type="password" id="registerPassword" placeholder="password" required>
                 <button type="submit">Sign Up</button>
             </form>
-            <p class="register-link">Already have an account? <a href="/login.html">Login</a></p>
+            <p class="register-link">Already have an account? <a href="/Account/Login">Login</a></p>
             <p id="registerFeedback" style="color:red;"></p>
         </div>
     </div>
@@ -46,13 +50,12 @@
             const feedback = document.getElementById('registerFeedback');
 
             if (response.ok) {
-                window.location.href = '/login.html';
+                window.location.href = '/Account/Login';
             } else {
                 const err = await response.json();
                 feedback.innerText = err.message || 'Registration failed';
             }
         });
-
     </script>
 </body>
 </html>

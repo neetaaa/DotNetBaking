@@ -3,7 +3,9 @@
     Layout = "_Layout";
 }
 
-<link rel="stylesheet" href="~/css/recipe.css" />
+@section Styles {
+    <link rel="stylesheet" href="~/css/recipe.css" asp-append-version="true" />
+}
 
 <div class="recipe-wrapper">
 
@@ -12,13 +14,10 @@
         <img src="~/images/oven.png" class="oven-icon" />
     </div>
 
-    
     <div class="bowl-area">
-
         <div class="bowl-css">
             <div class="dough"></div>
         </div>
-
     </div>
 
     <div class="ingredients-card">

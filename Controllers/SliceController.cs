@@ -16,7 +16,7 @@ namespace BakingG.Controllers
             _context = context;
         }
 
-        // ✅ SEND SLICE
+        // SEND SLICE
         [HttpPost("/api/slice/send")]
         public IActionResult Send([FromBody] SendSliceDto dto)
         {
@@ -38,7 +38,7 @@ namespace BakingG.Controllers
             return Ok();
         }
 
-        // ✅ INBOX
+        // INBOX
         [HttpGet("/api/slice/inbox/{userId}")]
         public IActionResult Inbox(int userId)
         {
@@ -61,7 +61,7 @@ namespace BakingG.Controllers
             return Ok(messages);
         }
 
-        // ✅ MARK AS READ
+        // MARK AS READ
         [HttpPost("/api/slice/read/{id}")]
         public IActionResult Read(int id)
         {

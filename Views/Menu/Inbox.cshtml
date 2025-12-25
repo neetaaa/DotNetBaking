@@ -6,28 +6,33 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Inbox</title>
-    <link rel="stylesheet" href="~/css/inbox.css" />
+    <title>Your Cake Inbox 🍰</title>
+    <link rel="stylesheet" href="/css/inbox.css" />
 </head>
-<body style="padding:20px; background:#fffafa;">
+<body>
 
-    <h1>Your Cake Inbox 🍰</h1>
+    <div class="inbox-wrapper">
 
-    <div class="send-box">
-        <h3>🍰 Send a slice</h3>
+        <header class="inbox-header">
+            <h1>🍰 Cake Inbox</h1>
+            <p>Send sweet slices to your friends</p>
+        </header>
 
-        <select id="toUserId">
-            <option value="">Choose a friend</option>
-        </select>
+        <div class="send-box">
+            <h3>🍰 Send a slice</h3>
 
-        <textarea id="messageText" placeholder="Write a sweet message..."></textarea>
+            <select id="toUserId">
+                <option value="">Choose a friend</option>
+            </select>
 
-        <button id="sendBtn">Send 🍰</button>
+            <textarea id="messageText" placeholder="Write a sweet message..."></textarea>
+
+            <button id="sendBtn">Send Slice 🍰</button>
+        </div>
+
+        <div id="messagesList" class="messages-list"></div>
+
     </div>
-
-    <hr />
-
-    <div id="messagesList"></div>
 
     <script src="~/js/inbox.js"></script>
 </body>

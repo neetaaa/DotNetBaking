@@ -1,33 +1,152 @@
-﻿.send-box {
-    max-width: 500px;
-    margin: 20px 0;
-    background: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(255,182,193,0.4);
+﻿/* 🌸 PAGE BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2a8a8;
+    min-height: 100vh;
+    color: #4a2b2b;
 }
 
+/* 🌷 WRAPPER */
+.inbox-wrapper {
+    max-width: 780px;
+    margin: auto;
+    padding: 50px 24px 90px;
+}
+
+/* 🎂 HEADER */
+.inbox-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+    .inbox-header h1 {
+        font-size: 34px;
+        margin-bottom: 8px;
+        color: #4b1f1f;
+    }
+
+    .inbox-header p {
+        font-size: 15px;
+        color: #7a4a4a;
+    }
+
+/* 🍰 SEND BOX */
+.send-box {
+    background: #fffafa;
+    padding: 30px 32px;
+    border-radius: 26px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+    margin-bottom: 46px;
+}
+
+    .send-box h3 {
+        margin-bottom: 18px;
+        font-size: 20px;
+        color: #7a3b3b;
+    }
+
+    /* 🧁 INPUTS */
     .send-box select,
     .send-box textarea {
         width: 100%;
-        margin-top: 10px;
-        padding: 12px;
-        border-radius: 12px;
-        border: 1px solid pink;
+        margin-top: 14px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid #f0caca;
+        background: #fff;
+        font-size: 15px;
+        color: #4a2b2b;
+        outline: none;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
     }
+
+        .send-box select:focus,
+        .send-box textarea:focus {
+            border-color: #e89b9b;
+            box-shadow: 0 0 0 3px rgba(232, 155, 155, 0.3);
+        }
 
     .send-box textarea {
-        height: 80px;
+        height: 110px;
+        resize: none;
     }
 
+        .send-box textarea::placeholder {
+            color: #c48f8f;
+        }
+
+    /* 🍓 BUTTON */
     .send-box button {
-        margin-top: 12px;
+        margin-top: 22px;
         width: 100%;
-        padding: 12px;
-        border-radius: 20px;
-        background: hotpink;
-        color: white;
+        padding: 14px;
+        border-radius: 18px;
+        background: #f2a8a8;
+        color: #fff;
         border: none;
-        font-size: 16px;
+        font-size: 17px;
+        font-weight: 600;
         cursor: pointer;
+        box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+        transition: all 0.25s ease;
     }
+
+        .send-box button:hover {
+            background: #ea8f8f;
+            transform: translateY(-2px);
+        }
+
+        .send-box button:active {
+            transform: scale(0.97);
+        }
+
+/* 📩 MESSAGES */
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message {
+    background: #fff;
+    border-radius: 22px;
+    padding: 18px 22px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+    animation: fadeInUp 0.35s ease;
+}
+
+    .message .from {
+        font-weight: 700;
+        color: #d2691e;
+        margin-bottom: 6px;
+    }
+
+    .message .text {
+        color: #5a2f2f;
+        line-height: 1.5;
+    }
+
+/* ✨ ANIMATION */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+    .inbox-wrapper {
+        padding: 40px 18px 70px;
+    }
+
+    .inbox-header h1 {
+        font-size: 28px;
+    }
+}

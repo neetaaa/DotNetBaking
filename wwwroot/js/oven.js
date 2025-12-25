@@ -6,7 +6,7 @@ const doneBtn = document.querySelector(".done-btn");
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
         let time = btn.dataset.time;
-        let fastTime = 5; // game speed (seconds)
+        let fastTime = 5; 
 
         timeSpan.innerText = time + " min";
         result.innerText = "Baking... 🔥";

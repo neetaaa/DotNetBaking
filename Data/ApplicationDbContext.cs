@@ -13,7 +13,5 @@ namespace BakingG.Data
         public DbSet<UserRecipe> UserRecipes { get; set; }
         public DbSet<SliceMessage> SliceMessages { get; set; }
 
-
-
     }
 }

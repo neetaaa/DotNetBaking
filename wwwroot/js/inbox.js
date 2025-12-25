@@ -1,9 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", async () => {
-
     const toUserSelect = document.getElementById("toUserId");
-    const currentUserId = localStorage.getItem("userId");
-
-    // LOAD USERS FROM DB
     const res = await fetch("/api/user/all");
     const users = await res.json();
 

@@ -17,13 +17,9 @@ namespace BakingG.Controllers
             _context = context;
         }
 
-        // REGISTER
         [HttpPost("register")]
         public IActionResult Register([FromBody] RegisterDto dto)
         {
-            Console.WriteLine("Register HIT");
-            Console.WriteLine($"Username: {dto.Username}, Email: {dto.Email}, Password: {dto.Password}");
-
             if (_context.Users.Any(u => u.Email == dto.Email))
                 return BadRequest(new { message = "Email already exists" });
 

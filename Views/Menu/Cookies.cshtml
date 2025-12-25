@@ -1,5 +1,187 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Cookies – Level 2";
+    Layout = "_Layout";
+}
+
+@section Styles {
+<style>
+    body {
+        background: linear-gradient(135deg, #f6e7d8, #f2c9ac);
+    }
+
+    .level-wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .level-card {
+        background: white;
+        width: 460px;
+        padding: 35px;
+        border-radius: 30px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        text-align: center;
+        animation: popIn 0.6s ease;
+    }
+
+    @@keyframes popIn {
+        from {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .level-card h1 {
+        margin-bottom: 8px;
+        font-size: 28px;
+    }
+
+    .level-card p {
+        color: #777;
+        margin-bottom: 30px;
+    }
+
+    .ingredients {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+
+    .ingredient {
+        background: #fff3e6;
+        border-radius: 18px;
+        padding: 18px 10px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        user-select: none;
+    }
+
+    .ingredient:hover {
+        transform: translateY(-4px);
+    }
+
+    .ingredient.selected {
+        background: #c8f7dc;
+        box-shadow: 0 0 0 3px #7de2b5;
+        transform: scale(1.05);
+    }
+
+    .ingredient.wrong {
+        background: #ffd6d6;
+        box-shadow: 0 0 0 3px #ff8c8c;
+    }
+
+    .bake-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 20px;
+        border: none;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #d2691e, #ff9f45);
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .bake-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .bake-btn:active {
+        transform: scale(0.97);
+    }
+
+    .result {
+        margin-top: 25px;
+        font-size: 20px;
+        font-weight: bold;
+        min-height: 28px;
+        animation: fadeIn 0.4s ease;
+    }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .success {
+        color: #2e9f55;
+    }
+
+    .fail {
+        color: #d64545;
+    }
+</style>
+}
+
+<div class="level-wrapper">
+
+    <div class="level-card">
+        <h1>🍪 Cookies – Level 2</h1>
+        <p>Zgjedh përbërësit e saktë për Chocolate Chip Cookies</p>
+
+        <div class="ingredients">
+            <div class="ingredient" data-correct="true">Flour</div>
+            <div class="ingredient" data-correct="true">Sugar</div>
+            <div class="ingredient" data-correct="true">Butter</div>
+            <div class="ingredient" data-correct="true">Chocolate</div>
+            <div class="ingredient" data-correct="false">Salt</div>
+            <div class="ingredient" data-correct="false">Milk</div>
+        </div>
+
+        <button class="bake-btn"> Bake Cookies</button>
+
+        <div class="result"></div>
+    </div>
+
+</div>
+
+@section Scripts {
+<script>
+    const ingredients = document.querySelectorAll(".ingredient");
+    const bakeBtn = document.querySelector(".bake-btn");
+    const result = document.querySelector(".result");
+
+    ingredients.forEach(i => {
+        i.addEventListener("click", () => {
+            i.classList.toggle("selected");
+            i.classList.remove("wrong");
+        });
+    });
+
+    bakeBtn.addEventListener("click", () => {
+        let correct = true;
+
+        ingredients.forEach(i => {
+            const isCorrect = i.dataset.correct === "true";
+            const selected = i.classList.contains("selected");
+
+            if (isCorrect && !selected) correct = false;
+            if (!isCorrect && selected) {
+                correct = false;
+                i.classList.add("wrong");
+            }
+        });
+
+        if (correct) {
+            result.textContent = " Perfect Cookies! Level Completed!";
+            result.className = "result success";
+            bakeBtn.textContent = "➡️ Next Level";
+        } else {
+            result.textContent = " Wrong ingredients. Try again!";
+            result.className = "result fail";
+        }
+    });
+</script>
 }
